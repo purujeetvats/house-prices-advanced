@@ -32,6 +32,8 @@ Metric = RMSE on log(SalePrice) (what Kaggle uses).
 | 50/50 blend Ridge + XGBoost | 2 outliers removed | 0.1114 (out-of-fold) → Kaggle 0.12689 |
 | Ridge + `TotalSF` feature | 2 outliers removed | 0.1149 ± 0.0083 (no gain) |
 | Ridge + log of GrLivArea, LotArea, 1stFlrSF | 2 outliers removed | 0.1119 ± 0.0076 |
+| LightGBM (defaults) | 2 outliers removed | 0.1281 ± 0.0094 |
+| LightGBM (RandomizedSearchCV, 20 of 256 combos: 500 trees, lr 0.1, 4 leaves, min_child_samples 20) | 2 outliers removed | 0.1186 |
 | **50/50 blend log-Ridge + XGBoost** (final) | 2 outliers removed | **0.1107** (out-of-fold) → Kaggle **0.12473** |
 
 - Outliers = houses with GrLivArea > 4000 sq ft that sold under $300k (Ids 524, 1299). Both landed in one CV fold and doubled its error.
